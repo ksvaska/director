@@ -55,7 +55,7 @@ function directorList (info){
         let li = document.createElement('li');
         li.innerHTML = `Режиссер: ${element.name}.
         Карьера: ${element.career}.
-        Фильмы: ${element.films}`;
+        Фильмы: <a href = ${element.films}>Ссылка</a>`;
         ul.append(li); 
     });
     return ul;
@@ -65,14 +65,18 @@ let directorInfo = directorList(director);
 document.getElementById('info').append(directorInfo);
 
 
-let p = document.createElement('p');
-p.id = 'films';
-document.body.append(p);
+let divFilms = document.createElement("div");
+divFilms.id = "films";
+document.body.append(divFilms);
+const p = document.createElement("p");
+p.textContent = `Лучшие фильмы:`;
+divFilms.append(p)
 
-director.forEach(elem =>{
- p.innerHTML = `Лучшие фильмы: ${elem.top_rated_film}`;
+director.forEach((elem) => {
+const pFilm = document.createElement("p");
+  pFilm.textContent = `${elem.top_rated_film}`;
+  divFilms.append(pFilm)
 });
-
 
 
     
