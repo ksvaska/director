@@ -48,14 +48,15 @@ const director = [
 let div = document.createElement('div');
 div.id = 'info';
 document.body.append(div);
+div.style.display = 'flex';
 
 function directorList (info){
     let ul = document.createElement('ul');
     info.forEach(element => {
         let li = document.createElement('li');
-        li.innerHTML = `Режиссер: ${element.name}.
-        Карьера: ${element.career}.
-        Фильмы: <a href = ${element.films}>Ссылка</a>`;
+        li.innerHTML = ` ${element.name}.
+       ${element.career}.
+       <a href = ${element.films}>Фильмография</a>`;
         ul.append(li); 
     });
     return ul;
@@ -70,6 +71,8 @@ divFilms.id = "films";
 document.body.append(divFilms);
 const p = document.createElement("p");
 p.textContent = `Лучшие фильмы:`;
+p.style.fontSize = '20px';
+p.style.fontStyle = 'oblique';
 divFilms.append(p)
 
 director.forEach((elem) => {
